@@ -3,11 +3,11 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>com.anxocode</groupId>
-  <artifactId>jinn</artifactId>
+  <artifactId>ji</artifactId>
   <version>1.0-SNAPSHOT</version>
   <packaging>jar</packaging>
 
-  <name>jinn</name>
+  <name>ji</name>
   <url>http://maven.apache.org</url>
 
   <properties>
@@ -19,16 +19,6 @@
     <url>scm:git:git@github.com:jfreire/jinn.git</url>
     <developerConnection>scm:git:git@github.com:jfreire/jinn.git</developerConnection>
   </scm>
-  
-  <build>
-    <plugins>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-release-plugin</artifactId>
-        <version>2.0-beta-9</version>
-      </plugin>
-    </plugins>
-  </build>
 
   <dependencies>
     <dependency>

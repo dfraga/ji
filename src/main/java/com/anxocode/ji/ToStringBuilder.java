@@ -1,4 +1,4 @@
-package com.anxocode.jinn;
+package com.anxocode.ji;
 
 public final class ToStringBuilder {
 
@@ -6,7 +6,7 @@ public final class ToStringBuilder {
 	private boolean first = true;
 
 	protected ToStringBuilder(Object object) {
-		this.sb.append(Jinn.notNull(object, "object").getClass().getSimpleName());
+		this.sb.append(Ji.notNull(object, "object").getClass().getSimpleName());
 		this.sb.append('{');
 	}
 
@@ -17,9 +17,9 @@ public final class ToStringBuilder {
 			this.sb.append(", ");
 		}
 		
-		this.sb.append(Jinn.notNull(name, "property name"));
+		this.sb.append(Ji.notNull(name, "property name"));
 		this.sb.append('=');
-		this.sb.append(Jinn.toString(value));
+		this.sb.append(Ji.toString(value));
 		
 		return this;
 	}
@@ -31,7 +31,7 @@ public final class ToStringBuilder {
 			this.sb.append(", ");
 		}
 		
-		this.sb.append(Jinn.toString(value));
+		this.sb.append(Ji.toString(value));
 		
 		return this;
 	}

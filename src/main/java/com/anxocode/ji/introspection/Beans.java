@@ -1,8 +1,8 @@
-package com.anxocode.jinn.introspection;
+package com.anxocode.ji.introspection;
 
-import static com.anxocode.jinn.Jinn.notNull;
-import static com.anxocode.jinn.Jinn.buildFail;
-import static com.anxocode.jinn.Jinn.or;
+import static com.anxocode.ji.Ji.buildFail;
+import static com.anxocode.ji.Ji.notNull;
+import static com.anxocode.ji.Ji.or;
 
 import java.beans.BeanInfo;
 import java.beans.IntrospectionException;
@@ -18,40 +18,40 @@ public class Beans {
 	private static final Beans INSTANCE = new Beans();
 	
 	public static Bean get(Class<?> type) {
-		return INSTANCE.getBean(type);
-	}
-
-	private final Map<Class<?>, Bean> beans;
-	
-	private Beans() {
-		this.beans = new HashMap<Class<?>, Bean>();
-	}
-	
-	public Bean getBean(Class<?> type) {
-		Bean bean = this.beans.get(type);
+		Bean bean = INSTANCE.beans.get(type);
 		
 		if (bean == null) {
-			bean = load(type);
-			this.beans.put(type, bean);
+			bean = INSTANCE.load(type);
+			INSTANCE.beans.put(type, bean);
 		}
 		
 		return bean;
 	}
-	
-	public Property property(Class<?> type, String name) {
-		return getBean(notNull(type, "type")).get(name);
+
+	public static Property property(Class<?> type, String name) {
+		return get(notNull(type, "type")).get(name);
 	}
 	
-	public Object property(Object instance, String name) {
+	public static Object property(Object instance, String name) {
 		notNull(instance, "instance");
 		
-		return getBean(instance.getClass()).get(instance, notNull(name, "name"));
+		return get(instance.getClass()).get(instance, notNull(name, "name"));
 	}
 	
-	public void property(Object instance, String name, Object value) {
+	public static void property(Object instance, String name, Object value) {
 		notNull(instance, "instance");
 		
-		getBean(instance.getClass()).set(instance, notNull(name, "name"), value);
+		get(instance.getClass()).set(instance, notNull(name, "name"), value);
+	}
+	
+	public static Iterable<Property> properties(Class<?> type) {
+		return get(type);
+	}
+	
+	private final Map<Class<?>, Bean> beans;
+	
+	private Beans() {
+		this.beans = new HashMap<Class<?>, Bean>();
 	}
 	
 	private Bean load(Class<?> type) {

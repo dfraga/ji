@@ -1,8 +1,8 @@
-package com.anxocode.jinn.introspection;
+package com.anxocode.ji.introspection;
 
-import static com.anxocode.jinn.Jinn.check;
-import static com.anxocode.jinn.Jinn.notNull;
-import static com.anxocode.jinn.Jinn.buildFail;
+import static com.anxocode.ji.Ji.buildFail;
+import static com.anxocode.ji.Ji.check;
+import static com.anxocode.ji.Ji.notNull;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;

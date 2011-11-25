@@ -1,4 +1,4 @@
-package com.anxocode.jinn.introspection;
+package com.anxocode.ji.introspection;
 
 enum BeanErrorMessages {
 	defaultError("Error in property {} in {}: {}"),

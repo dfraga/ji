@@ -1,6 +1,6 @@
-package com.anxocode.jinn.introspection;
+package com.anxocode.ji.introspection;
 
-import static com.anxocode.jinn.Jinn.notNull;
+import static com.anxocode.ji.Ji.notNull;
 
 import java.util.Collections;
 import java.util.HashMap;
@@ -8,7 +8,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
-import com.anxocode.jinn.Jinn;
+import com.anxocode.ji.Ji;
 
 public class Bean implements Iterable<Property> {
 
@@ -27,7 +27,7 @@ public class Bean implements Iterable<Property> {
 	}
 	
 	public Property get(String name) {
-		Jinn.notNull(name, "name");
+		Ji.notNull(name, "name");
 		
 		return this.properties.get(name);
 	}

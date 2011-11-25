@@ -1,6 +1,6 @@
-package com.anxocode.jinn;
+package com.anxocode.ji;
 
-enum JinnErrorMessages {
+enum JiErrorMessages {
 
 	notNull("{} can't be null"),
 	notEmpty("{} can't be empty"),
@@ -8,7 +8,7 @@ enum JinnErrorMessages {
 
 	private final String pattern;
 	
-	JinnErrorMessages(String pattern) {
+	JiErrorMessages(String pattern) {
 		this.pattern = pattern;
 	}
 	

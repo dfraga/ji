@@ -1,11 +1,11 @@
-package com.anxocode.jinn;
+package com.anxocode.ji;
 
 import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Map;
 
-public class Jinn {
+public class Ji {
 	
 	private static final char DELIM_START = '{';
 	private static final char DELIM_STOP = '}';
@@ -106,7 +106,7 @@ public class Jinn {
 	
 	public static <T> T notNull(T object, String name) {
 		if (object == null) {
-			throw buildFail(JinnErrorMessages.notNull, name);
+			throw buildFail(JiErrorMessages.notNull, name);
 		}
 
 		return object;
@@ -132,7 +132,7 @@ public class Jinn {
 		text = notNull(text, name).trim();
 		
 		if (text.length() == 0) {
-			throw buildFail(JinnErrorMessages.notBlank, name);
+			throw buildFail(JiErrorMessages.notBlank, name);
 		}
 		
 		return text;
@@ -140,7 +140,7 @@ public class Jinn {
 	
 	public static <T> Collection<T> notEmpty(Collection<T> collection, String name) {
 		if (!notNull(collection, name).isEmpty()) {
-			throw buildFail(JinnErrorMessages.notEmpty, name);
+			throw buildFail(JiErrorMessages.notEmpty, name);
 		}
 		
 		return collection;
@@ -148,7 +148,7 @@ public class Jinn {
 	
 	public static <T> T[] notEmpty(T[] array, String name) {
 		if (notNull(array, name).length == 0) {
-			throw buildFail(JinnErrorMessages.notEmpty, name);
+			throw buildFail(JiErrorMessages.notEmpty, name);
 		}
 		
 		return array;
@@ -156,7 +156,7 @@ public class Jinn {
 	
 	public static <T> T notEmpty(T object, String name) {
 		if (isEmpty(object)) {
-			throw buildFail(JinnErrorMessages.notEmpty, name);
+			throw buildFail(JiErrorMessages.notEmpty, name);
 		}
 		
 		return object;

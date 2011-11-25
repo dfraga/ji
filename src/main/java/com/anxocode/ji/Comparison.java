@@ -1,4 +1,4 @@
-package com.anxocode.jinn;
+package com.anxocode.ji;
 
 import java.util.Comparator;
 
