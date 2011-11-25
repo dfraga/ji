@@ -1,4 +1,4 @@
-package com.anxocode.ji.introspection;
+package com.anxocode.ji;
 
 import static com.anxocode.ji.Ji.buildFail;
 import static com.anxocode.ji.Ji.check;
@@ -39,28 +39,28 @@ public class Property {
 	
 	public void set(Object instance, Object value) {
 		notNull(instance, "instance");
-		check(isWritable(), BeanErrorMessages.notWritable, this.name, instance.getClass());
+		check(isWritable(), ErrorMessages.notWritable, this.name, instance.getClass());
 		
 		try {
 			this.setter.invoke(instance, value);
 		} catch (IllegalAccessException e) {
-			throw buildFail(BeanErrorMessages.defaultError, this.name, instance.getClass(), e);
+			throw buildFail(ErrorMessages.defaultError, this.name, instance.getClass(), e);
 		} catch (InvocationTargetException e) {
-			throw buildFail(BeanErrorMessages.defaultError, this.name, instance.getClass(),
+			throw buildFail(ErrorMessages.defaultError, this.name, instance.getClass(),
 					e.getCause());
 		}
 	}
 	
 	public Object get(Object instance) {
 		notNull(instance, "instance");
-		check(isReadable(), BeanErrorMessages.notReadable, this.name, instance.getClass());
+		check(isReadable(), ErrorMessages.notReadable, this.name, instance.getClass());
 		
 		try {
 			return this.getter.invoke(instance);
 		} catch (IllegalAccessException e) {
-			throw buildFail(BeanErrorMessages.defaultError, this.name, instance.getClass(), e);
+			throw buildFail(ErrorMessages.defaultError, this.name, instance.getClass(), e);
 		} catch (InvocationTargetException e) {
-			throw buildFail(BeanErrorMessages.defaultError, this.name, instance.getClass(),
+			throw buildFail(ErrorMessages.defaultError, this.name, instance.getClass(),
 					e.getCause());
 		}
 	}

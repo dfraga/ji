@@ -1,4 +1,4 @@
-package com.anxocode.ji.introspection;
+package com.anxocode.ji;
 
 import static com.anxocode.ji.Ji.buildFail;
 import static com.anxocode.ji.Ji.notNull;
@@ -66,7 +66,7 @@ public class Beans {
 			
 			return new Bean(type, properties);
 		} catch (IntrospectionException e) {
-			throw buildFail(BeanErrorMessages.instrospection, or(e.getCause(), e));
+			throw buildFail(ErrorMessages.instrospection, or(e.getCause(), e));
 		}
 	}
 }

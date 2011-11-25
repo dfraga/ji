@@ -106,7 +106,7 @@ public class Ji {
 	
 	public static <T> T notNull(T object, String name) {
 		if (object == null) {
-			throw buildFail(JiErrorMessages.notNull, name);
+			throw buildFail(ErrorMessages.notNull, name);
 		}
 
 		return object;
@@ -132,7 +132,7 @@ public class Ji {
 		text = notNull(text, name).trim();
 		
 		if (text.length() == 0) {
-			throw buildFail(JiErrorMessages.notBlank, name);
+			throw buildFail(ErrorMessages.notBlank, name);
 		}
 		
 		return text;
@@ -140,7 +140,7 @@ public class Ji {
 	
 	public static <T> Collection<T> notEmpty(Collection<T> collection, String name) {
 		if (!notNull(collection, name).isEmpty()) {
-			throw buildFail(JiErrorMessages.notEmpty, name);
+			throw buildFail(ErrorMessages.notEmpty, name);
 		}
 		
 		return collection;
@@ -148,7 +148,7 @@ public class Ji {
 	
 	public static <T> T[] notEmpty(T[] array, String name) {
 		if (notNull(array, name).length == 0) {
-			throw buildFail(JiErrorMessages.notEmpty, name);
+			throw buildFail(ErrorMessages.notEmpty, name);
 		}
 		
 		return array;
@@ -156,7 +156,7 @@ public class Ji {
 	
 	public static <T> T notEmpty(T object, String name) {
 		if (isEmpty(object)) {
-			throw buildFail(JiErrorMessages.notEmpty, name);
+			throw buildFail(ErrorMessages.notEmpty, name);
 		}
 		
 		return object;

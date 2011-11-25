@@ -1,4 +1,4 @@
-package com.anxocode.ji.introspection;
+package com.anxocode.ji;
 
 import static com.anxocode.ji.Ji.notNull;
 
@@ -8,7 +8,6 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
-import com.anxocode.ji.Ji;
 
 public class Bean implements Iterable<Property> {
 
@@ -33,12 +32,12 @@ public class Bean implements Iterable<Property> {
 	}
 	
 	public void set(Object instance, String name, Object value) {
-		final Property property = notNull(get(name), BeanErrorMessages.notFound, name, this.type);
+		final Property property = notNull(get(name), ErrorMessages.notFound, name, this.type);
 		property.set(instance, value);
 	}
 	
 	public Object get(Object instance, String name) {
-		final Property property = notNull(get(name), BeanErrorMessages.notFound, name, this.type);
+		final Property property = notNull(get(name), ErrorMessages.notFound, name, this.type);
 		
 		return property.get(instance);
 	}

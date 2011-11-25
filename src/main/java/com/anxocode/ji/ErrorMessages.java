@@ -1,6 +1,10 @@
-package com.anxocode.ji.introspection;
+package com.anxocode.ji;
 
-enum BeanErrorMessages {
+enum ErrorMessages {
+
+	notNull("{} can't be null"),
+	notEmpty("{} can't be empty"),
+	notBlank("{} can't be empty or blank"),
 	defaultError("Error in property {} in {}: {}"),
 	notFound("Not found property {} in {}"),
 	notReadable("Property {} in {} is not readable"),
@@ -9,7 +13,7 @@ enum BeanErrorMessages {
 
 	private final String pattern;
 	
-	BeanErrorMessages(String pattern) {
+	ErrorMessages(String pattern) {
 		this.pattern = pattern;
 	}
 	
