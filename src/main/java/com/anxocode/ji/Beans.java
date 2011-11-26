@@ -1,16 +1,8 @@
 package com.anxocode.ji;
 
-import static com.anxocode.ji.Ji.buildFail;
 import static com.anxocode.ji.Ji.notNull;
-import static com.anxocode.ji.Ji.or;
 
-import java.beans.BeanInfo;
-import java.beans.IntrospectionException;
-import java.beans.Introspector;
-import java.beans.PropertyDescriptor;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 public class Beans {
@@ -21,7 +13,7 @@ public class Beans {
 		Bean bean = INSTANCE.beans.get(type);
 		
 		if (bean == null) {
-			bean = INSTANCE.load(type);
+			bean = new Bean(type);
 			INSTANCE.beans.put(type, bean);
 		}
 		
@@ -52,21 +44,5 @@ public class Beans {
 	
 	private Beans() {
 		this.beans = new HashMap<Class<?>, Bean>();
-	}
-	
-	private Bean load(Class<?> type) {
-		try {
-			final BeanInfo beanInfo = Introspector.getBeanInfo(type);
-			final List<Property> properties = new ArrayList<Property>();
-			
-			for (final PropertyDescriptor pd : beanInfo.getPropertyDescriptors()) {
-				properties.add(new Property(pd.getName(), pd.getPropertyType(), pd.getReadMethod(), 
-						pd.getWriteMethod()));
-			}
-			
-			return new Bean(type, properties);
-		} catch (IntrospectionException e) {
-			throw buildFail(ErrorMessages.instrospection, or(e.getCause(), e));
-		}
 	}
 }
