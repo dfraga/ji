@@ -15,9 +15,9 @@
   </properties>
   
   <scm>
-    <connection>scm:git:git@github.com:jfreire/jinn.git</connection>
-    <url>scm:git:git@github.com:jfreire/jinn.git</url>
-    <developerConnection>scm:git:git@github.com:jfreire/jinn.git</developerConnection>
+    <connection>scm:git:git@github.com:jfreire/ji.git</connection>
+    <url>scm:git:git@github.com:jfreire/ji.git</url>
+    <developerConnection>scm:git:git@github.com:jfreire/ji.git</developerConnection>
   </scm>
 
   <dependencies>
