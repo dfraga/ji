@@ -46,4 +46,8 @@
       </plugin>
     </plugins>
   </build>
+  <issueManagement>
+  	<system>github</system>
+  	<url>https://github.com/jfreire/ji/issues</url>
+  </issueManagement>
 </project>
