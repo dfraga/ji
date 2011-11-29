@@ -12,11 +12,11 @@ enum ErrorMessages {
 	instrospection("Error in {}: {}");
 
 	private final String pattern;
-	
-	ErrorMessages(String pattern) {
+
+	ErrorMessages(final String pattern) {
 		this.pattern = pattern;
 	}
-	
+
 	@Override
 	public String toString() {
 		return this.pattern;

@@ -1,47 +1,45 @@
 package com.anxocode.ji;
 
-import static com.anxocode.ji.Ji.notNull;
-
 import java.util.HashMap;
 import java.util.Map;
 
 public class Beans {
-	
+
 	private static final Beans INSTANCE = new Beans();
-	
-	public static Bean get(Class<?> type) {
-		Bean bean = INSTANCE.beans.get(type);
-		
+
+	public static Bean get(final Class<?> type) {
+		Bean bean = Beans.INSTANCE.beans.get(type);
+
 		if (bean == null) {
 			bean = new Bean(type);
-			INSTANCE.beans.put(type, bean);
+			Beans.INSTANCE.beans.put(type, bean);
 		}
-		
+
 		return bean;
 	}
 
-	public static Property property(Class<?> type, String name) {
-		return get(notNull(type, "type")).get(name);
+	public static Property property(final Class<?> type, final String name) {
+		return Beans.get(Ji.notNull(type, "type")).get(name);
 	}
-	
-	public static Object property(Object instance, String name) {
-		notNull(instance, "instance");
-		
-		return get(instance.getClass()).get(instance, notNull(name, "name"));
+
+	public static Object property(final Object instance, final String name) {
+		Ji.notNull(instance, "instance");
+
+		return Beans.get(instance.getClass()).get(instance, Ji.notNull(name, "name"));
 	}
-	
-	public static void property(Object instance, String name, Object value) {
-		notNull(instance, "instance");
-		
-		get(instance.getClass()).set(instance, notNull(name, "name"), value);
+
+	public static void property(final Object instance, final String name, final Object value) {
+		Ji.notNull(instance, "instance");
+
+		Beans.get(instance.getClass()).set(instance, Ji.notNull(name, "name"), value);
 	}
-	
-	public static Iterable<Property> properties(Class<?> type) {
-		return get(type);
+
+	public static Iterable<Property> properties(final Class<?> type) {
+		return Beans.get(type);
 	}
-	
+
 	private final Map<Class<?>, Bean> beans;
-	
+
 	private Beans() {
 		this.beans = new HashMap<Class<?>, Bean>();
 	}
