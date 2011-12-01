@@ -4,6 +4,11 @@ import static com.anxocode.ji.Ji.*;
 
 import java.util.Arrays;
 
+/**
+ * Sample class.
+ * 
+ * @author jfreire
+ */
 public class Sample implements Comparable<Sample> {
 
 	public Long id;
@@ -36,7 +41,6 @@ public class Sample implements Comparable<Sample> {
 	
 	public void perform(int param1, int param2) {
 		check(param1 == param2 * 2, "param1 {} debe ser el doble de param2 {}", param1, param2);
-		
 	}
 
 	@Override
